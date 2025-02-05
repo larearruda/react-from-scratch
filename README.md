@@ -1,3 +1,53 @@
+# E-commerce FrontEnd 
+## ReactJs From Scratch 
+
+Projeto pra estudo e prática começando com ReactJs (sem frameworks ex.: NextJs) no qual eu irei desenvolver as features básicas mencionadas
+
+**Bibliotecas adicionadas:**
+- Styled components 
+- Axios
+- DotEnv 
+- Redux 
+- FontAwesome
+
+**Bibliotecas removidas:**
+- Jest [ainda nao tenho caso de testes, vou tirar pq nao faz sentido]
+
+## Instalação
+
+## Executar
+ `npm start`
+
+## Features desenvolvidas
+- [x] Requests HTTPs com a biblioteca Axios
+- [x] Gerenciamento de estado através de redux
+- [x] Ler variavéis de ambiente a partir do .env
+- [ ] Formulários dinamicos
+
+
+## Changelog:
+
+18 de dezembro:
+Adicionado leitura de variavel de ambiente através do process.env. 
+Observação: essas params devem começar com REACT_APP_ no nome 
+
+3 de dezembro:
+```
+Index 
+└── App
+    ├── MenuNav
+    └── Panel -> esse panel está ultrapassando a visualização da tela. estou tentando ajustar a visualização do container em App
+        └── Header 
+```
+
+
+13 de novembro:
+Store adicionada, alteração está 
+
+30 de outubro:
+falta adicionar uma store pra alterar o estado que controla se o usuário está logado ou não 
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
