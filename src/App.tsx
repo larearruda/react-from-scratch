@@ -1,24 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Login from './pages/Login/Login';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { StateIterface } from './store/store';
+import Panel from './components/ui/Panel/Panel';
+import { LoggedContainer } from './App.styles';
+import MenuNav from './components/ui/MenuNav/MenuNav';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+const App = () => {
+  const isLogged = useSelector((state: StateIterface) => state.login.isLogged)
+  const dispatch = useDispatch();
+  
+  localStorage.setItem('teste_local_storage', 'larissa');
+
+  function fazerLogin (){
+    dispatch({type: 'login/SET_LOGIN'});
+  }
+
+  function loadEnv(){
+    console.log('env SECRET_KEY:', process.env.REACT_APP_SECRET_KEY);
+  }
+
+  useEffect(() => {
+    loadEnv()
+  },[isLogged])
+
+  return (    
+    <div>
+      {isLogged && (
+        <LoggedContainer>
+          	<MenuNav />
+            <Panel />
+        </LoggedContainer>
+      )}
+      {!isLogged && (
+        <Login handleLoginClick={fazerLogin}/>
+      )}
     </div>
   );
 }
